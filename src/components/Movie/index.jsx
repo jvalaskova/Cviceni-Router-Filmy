@@ -1,23 +1,23 @@
 import React from 'react';
 import movies from './../../movies.js';
+import {useParams} from 'react-router-dom';
 
 const Movie = () => {
-	// naimportuj useParams z react-router-dom
-	// pomocí useParams získej id filmu předané jako parametr v adrese, která zobrazila tuto komponentu
-	// podle id najdi film v poli movies (už ho máš naimportované)
-	// místo komentáře dole zobraz detaily nalezeného filmu
+
+	const { id } = useParams();
 
 	return (
-		<div className="movie">
-			{/*
-				Sem doplnit:
-				- obrázek (jsou ve složce assets)
-				- název filmu
-				- popis
-				- případně další detaily
-			*/}
+	<>
+		{movies.find((movieId) => movieId.id == {id} ) }
+
+		<div className="movie" key={id}>
+				<img className="poster" src={'/assets/'+ movies.poster} alt="poster" />
+				<h4  className="title">{movies.title}</h4>
+				<p className="information">{movies.storyline}</p>
 		</div>
-	)
+	</>
+	);
+	
 }
 
 export default Movie;
